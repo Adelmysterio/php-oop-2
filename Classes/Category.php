@@ -12,4 +12,9 @@ class Category
             return "Errore";
         }
     }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

@@ -77,4 +77,67 @@ $mouse = new Toys(
     '8.5 cm x 10 cm'
 );
 
-var_dump($royalCanin, $almoNature, $catCan ,$fishFood, $cage, $filter, $kong, $mouse);
+/* var_dump($royalCanin, $almoNature, $catCan ,$fishFood, $cage, $filter, $kong, $mouse); */
+
+$products = [$royalCanin, $almoNature, $catCan, $fishFood, $cage, $filter, $kong, $mouse];
+
+/* var_dump($product); */
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.scss">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Negoziazione Animalesca
+        </h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Prodotti:</h2>
+            <div>
+                <?php foreach ($products as $product) { ?>
+                    <article>
+                        <img src="<?php echo $product->getimgURL() ?>" alt="">
+                        <h3> <?php echo $product->getName() ?></h3>
+                        <p> Categoria: <?php echo $product->getCategory()->getCategory() ?> </p>
+                        <p> Prezzo: <?php echo $product->getPrice() ?> </p>
+                        <p>
+                            <?php if (is_a($product, 'Food')) {
+                                echo 'Peso: ' . $product->getWeight();
+                            } else if (is_a($product, 'Accessories')) {
+                                echo 'Materiale: ' . $product->getmaterial();
+                            } else {
+                                echo 'Caratteristiche: ' . $product->getspecific();
+                            }
+                            ?>
+                        </p>
+                        <p>
+                            <?php if (is_a($product, 'Food')) {
+                                echo 'Ingredienti: ' . $product->getIngredients();
+                            } else if (is_a($product, 'Accessories')) {
+                                echo 'Dimensioni: ' . $product->getdimensions();
+                            } else {
+                                echo 'Dimensioni: ' . $product->getdimensions();
+                            }
+                            ?>
+                        </p>
+                    </article>
+                <?php } ?>
+                <article></article>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
