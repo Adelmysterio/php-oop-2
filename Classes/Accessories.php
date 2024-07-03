@@ -1,25 +1,25 @@
 <?php
 require_once __DIR__ . '/Product.php';
-class Toys extends Product
+class Accessories extends Product
 {
-    private $specific;
+    private $material;
     private $dimensions;
 
-    public function __construct($name, $price, $category, $imgURL, $specific, $dimensions)
+    public function __construct($name, $price, $category, $imgURL, $material, $dimensions)
     {
         parent::__construct($name, $price, $category, $imgURL);
-        $this->specific = $specific;
+        $this->material = $material;
         $this->dimensions = $dimensions;
     }
 
-    public function getspecific()
+    public function getmaterial()
     {
-        return $this->specific;
+        return $this->material;
     }
 
-    public function setspecific($specific)
+    public function setmaterial($material)
     {
-        $this->specific = $specific;
+        $this->material = $material;
     }
 
     public function getdimensions()
